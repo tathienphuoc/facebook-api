@@ -3,10 +3,10 @@ const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-// const cors = require("./middleware/cors");
+const cors = require("./middleware/cors");
 const fileUpload = require("express-fileupload");
 const socket = require("./socket");
-const cors = require("cors");
+// const cors = require("cors");
 
 require("dotenv").config();
 
@@ -29,23 +29,22 @@ app.use(
 app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
-// app.use(cors);
+app.use(cors);
 
-const allowedOrigins = ["https://facebook-client-two.vercel.app/"];
-app.use(
-  cors({
-    // origin: function (origin, callback) {
-    //   if (!origin) return callback(null, true);
-    //   if (allowedOrigins.indexOf(origin) === -1) {
-    //     const msg =
-    //       "The CORS policy for this site does not allow access from the specified Origin.";
-    //     return callback(new Error(msg), false);
-    //   }
-    //   return callback(null, true);
-    // },
-    origin: "*",
-  })
-);
+// const allowedOrigins = ["https://facebook-client-two.vercel.app/"];
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         const msg =
+//           "The CORS policy for this site does not allow access from the specified Origin.";
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     },
+//   })
+// );
 
 mongoose.connect(process.env.MongoDB_URL, () => {
   console.log("Connected to MongoDB");

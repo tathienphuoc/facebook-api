@@ -2,12 +2,20 @@ require("dotenv").config();
 
 module.exports = (req, res, next) => {
   let origin = req.headers.origin;
-  res.header(
+  // res.header(
+  //   "Access-Control-Allow-Origin",
+  //   // req.headers.host.indexOf("localhost") > -1
+  //   //   ? process.env.CLIENT_URL || "http://localhost:3000"
+  //   //   : origin
+  //   "*"
+  // );
+  // res.setHeader(
+  //   "Access-Control-Allow-Origin",
+  //   "https://facebook-client-two.vercel.app"
+  // );
+  res.setHeader(
     "Access-Control-Allow-Origin",
-    // req.headers.host.indexOf("localhost") > -1
-    //   ? process.env.CLIENT_URL || "http://localhost:3000"
-    //   : origin
-    process.env.CLIENT_URL
+    "*"
   );
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header(
