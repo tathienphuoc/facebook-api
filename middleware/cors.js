@@ -9,14 +9,14 @@ module.exports = (req, res, next) => {
   //   //   : origin
   //   "*"
   // );
-  // res.setHeader(
-  //   "Access-Control-Allow-Origin",
-  //   "https://facebook-client-two.vercel.app"
-  // );
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "*"
+    "https://facebook-client-two.vercel.app"
   );
+  // res.setHeader(
+  //   "Access-Control-Allow-Origin",
+  //   "*"
+  // );
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header(
     "Access-Control-Allow-Headers",
