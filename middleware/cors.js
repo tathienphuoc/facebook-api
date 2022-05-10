@@ -1,9 +1,11 @@
+require("dotenv").config();
+
 module.exports = (req, res, next) => {
   let origin = req.headers.origin;
   res.header(
     "Access-Control-Allow-Origin",
     req.headers.host.indexOf("localhost") > -1
-      ? "http://localhost:3000"
+      ? process.env.CLIENT_URL || "http://localhost:3000"
       : origin
   );
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
