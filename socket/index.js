@@ -5,7 +5,13 @@ let users = [];
 module.exports = {
   connect(server) {
     io = require("socket.io")(server, {
-      cors: { origin: ["http://localhost:3000", "https://admin.socket.io"] },
+      cors: {
+        origin: [
+          "http://localhost:3000",
+          "https://admin.socket.io",
+          "https://facebook-client-two.vercel.app/",
+        ],
+      },
     });
 
     instrument(io, {
