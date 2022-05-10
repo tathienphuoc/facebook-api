@@ -77,6 +77,7 @@ module.exports = {
       maxAge: 365 * 24 * 60 * 60 * 100, // thời gian sống
       httpOnly: true, // chỉ có http mới đọc được token
       secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
+      sameSite: "none",
     });
 
     return res.status(200).json({ ...User.toDTO(user) });
