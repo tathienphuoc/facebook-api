@@ -9,7 +9,7 @@ module.exports = {
         origin: [
           "http://localhost:3000",
           "https://admin.socket.io",
-          "https://facebook-client-two.vercel.app",
+          "https://facebook-client.onrender.com",
         ],
       },
     });

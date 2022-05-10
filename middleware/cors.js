@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   // );
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://facebook-client-two.vercel.app"
+    "https://facebook-client.onrender.com"
   );
   // res.setHeader(
   //   "Access-Control-Allow-Origin",
