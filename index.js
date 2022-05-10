@@ -46,7 +46,7 @@ app.use(
 app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
-app.use(cors);
+// app.use(cors);
 
 mongoose.connect(process.env.MongoDB_URL, () => {
   console.log("Connected to MongoDB");
