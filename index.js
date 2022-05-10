@@ -3,9 +3,10 @@ const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-const cors = require("./middleware/cors");
+// const cors = require("./middleware/cors");
 const fileUpload = require("express-fileupload");
 const socket = require("./socket");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -47,6 +48,19 @@ app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
 // app.use(cors);
+
+const whitelist = ["https://facebook-client-two.vercel.app/"];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 
 mongoose.connect(process.env.MongoDB_URL, () => {
   console.log("Connected to MongoDB");
