@@ -49,7 +49,7 @@ app.use(helmet());
 app.use(cookieParser());
 // app.use(cors);
 
-const whitelist = ["https://facebook-client-two.vercel.app/"];
+const whitelist = ["https://facebook-api.onrender.com/users/login"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
